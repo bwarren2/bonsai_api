@@ -1,0 +1,11 @@
+pip-tools
+Django
+djangorestframework
+psycopg2
+dj-database-url
+pytest
+pytest-django
+gunicorn
+whitenoise
+ipython
+pdbpp
