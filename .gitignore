@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# 12-factor environment injection.
+.env
+
 # C extensions
 *.so
 
