@@ -5,10 +5,10 @@
 #    pip-compile --output-file requirements.txt requirements.in
 #
 appnope==0.1.0            # via ipython
-backports.shutil-get-terminal-size==1.0.0  # via ipython
 click==6.6                # via pip-tools
 decorator==4.0.10         # via ipython, traitlets
 dj-database-url==0.4.1
+django-cors-headers==1.1.0
 Django==1.9.8
 djangorestframework==3.4.0
 fancycompleter==0.5       # via pdbpp
@@ -17,7 +17,6 @@ gunicorn==19.6.0
 ipython-genutils==0.1.0   # via traitlets
 ipython==5.0.0
 ordereddict==1.1          # via pdbpp
-pathlib2==2.1.0           # via ipython, pickleshare
 pdbpp==0.8.3
 pexpect==4.2.0            # via ipython
 pickleshare==0.7.3        # via ipython
@@ -27,11 +26,10 @@ psycopg2==2.6.2
 ptyprocess==0.5.1         # via pexpect
 py==1.4.31                # via pytest
 pygments==2.1.3           # via ipython, pdbpp
-pyrepl==0.8.4             # via fancycompleter
 pytest-django==2.9.1
 pytest==2.9.2
 simplegeneric==0.8.1      # via ipython
-six==1.10.0               # via pathlib2, pip-tools, prompt-toolkit
+six==1.10.0               # via pip-tools, prompt-toolkit
 traitlets==4.2.2          # via ipython
 wcwidth==0.1.7            # via prompt-toolkit
 whitenoise==3.2

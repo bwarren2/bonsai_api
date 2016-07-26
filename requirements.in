@@ -1,11 +1,12 @@
 pip-tools
 Django
-djangorestframework
 psycopg2
 dj-database-url
-pytest
-pytest-django
+django-cors-headers
+djangorestframework
 gunicorn
-whitenoise
 ipython
 pdbpp
+pytest
+pytest-django
+whitenoise
