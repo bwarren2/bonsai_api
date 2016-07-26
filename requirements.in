@@ -1,0 +1,12 @@
+pip-tools
+Django
+psycopg2
+dj-database-url
+django-cors-headers
+djangorestframework
+gunicorn
+ipython
+pdbpp
+pytest
+pytest-django
+whitenoise
