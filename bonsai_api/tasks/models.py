@@ -11,3 +11,12 @@ class Task(models.Model):
     title = models.CharField(max_length=128)
     completed = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=now)
+    befores = models.ManyToManyField(
+        'self',
+        symmetrical=False,
+        related_name='afters',
+        blank=True,
+    )
+
+    def __str__(self):
+        return '{}'.format(self.title)
