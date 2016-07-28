@@ -1,5 +1,5 @@
 """
-WSGI config for bonsai_api project.
+WSGI config for bonsai project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bonsai_api.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bonsai.settings")
 
 application = get_wsgi_application()
