@@ -17,6 +17,7 @@ class Task(models.Model):
         related_name='afters',
         blank=True,
     )
+    owner = models.ForeignKey(User)
 
     def __str__(self):
         return '{}'.format(self.title)

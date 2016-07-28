@@ -7,6 +7,8 @@ from .models import (
 
 
 class TaskSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
+
     class Meta:
         model = Task
         fields = (
@@ -16,6 +18,7 @@ class TaskSerializer(serializers.ModelSerializer):
             'created_at',
             'befores',
             'afters',
+            'owner',
         )
 
     def save(self, *args, **kwargs):
