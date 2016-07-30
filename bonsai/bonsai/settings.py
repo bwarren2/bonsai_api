@@ -143,6 +143,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # CORS configuration
 CORS_ORIGIN_WHITELIST = (
     'localhost:4200',
+    # Temporary alpha URLs:
+    'task-bonsai.s3-website-us-east-1.amazonaws.com',
+    'duhbp1tl1eh91.cloudfront.net',
 )
 
 # Django REST Framework settings
