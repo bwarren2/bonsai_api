@@ -1,0 +1,5 @@
+pip-tools
+ipython
+pdbpp
+pytest
+pytest-django
