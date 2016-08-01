@@ -146,6 +146,7 @@ CORS_ORIGIN_WHITELIST = (
     # Temporary alpha URLs:
     'task-bonsai.s3-website-us-east-1.amazonaws.com',
     'duhbp1tl1eh91.cloudfront.net',
+    'alpha.taskbonsai.com',
 )
 
 # Django REST Framework settings
