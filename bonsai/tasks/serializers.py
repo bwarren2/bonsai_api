@@ -19,6 +19,7 @@ class TaskSerializer(serializers.ModelSerializer):
             'befores',
             'afters',
             'owner',
+            'details',
         )
 
     def save(self, *args, **kwargs):

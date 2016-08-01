@@ -18,6 +18,7 @@ class Task(models.Model):
         blank=True,
     )
     owner = models.ForeignKey(User)
+    details = models.TextField(blank=True)
 
     def __str__(self):
         return '{}'.format(self.title)
