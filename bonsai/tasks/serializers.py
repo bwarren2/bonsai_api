@@ -39,9 +39,28 @@ class TaskSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+    old_password = serializers.CharField(
+        style={'input_type': 'password'},
+        write_only=True,
+    )
+    new_password1 = serializers.CharField(
+        style={'input_type': 'password'},
+        write_only=True,
+    )
+    new_password2 = serializers.CharField(
+        style={'input_type': 'password'},
+        write_only=True,
+    )
+
     class Meta:
         model = User
         fields = (
             'id',
+            'username',
+            'old_password',
+            'new_password1',
+            'new_password2',
+        )
+        read_only_fields = (
             'username',
         )
