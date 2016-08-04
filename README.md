@@ -6,7 +6,7 @@ This is the API that powers Task Bonsai.
 
     git clone git@github.com:bwarren2/bonsai_api.git
     cd bonsai_api
-    mkvirtualenv bonsai_api
+    mkvirtualenv bonsai_api --python=<path to python3.5>
     setvirtualenv
     add2virtualenv bonsai
     pip install -r requirements/local.txt
