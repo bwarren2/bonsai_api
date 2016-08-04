@@ -24,7 +24,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
     def save(self, *args, **kwargs):
         try:
-            return super().save(*args, **kwargs)
+            return super(TaskSerializer, self).save(*args, **kwargs)
         except IntegrityError as excp:
             # Sometimes, the Ember frontend causes a race, sending two PUTs in
             # quick succession and making the DB yell at us. Let's silence it.
