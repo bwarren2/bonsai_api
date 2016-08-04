@@ -10,6 +10,7 @@ class User(AbstractUser):
 class Task(models.Model):
     title = models.CharField(max_length=128)
     completed = models.BooleanField(default=False)
+    completed_at = models.DateTimeField(default=now, null=True)
     created_at = models.DateTimeField(default=now)
     befores = models.ManyToManyField(
         'self',
