@@ -37,6 +37,8 @@ class Task(models.Model):
             if self.graph_x is None and self.graph_y is None:
                 # Magic values for the ranges intended to fit the nodes on the
                 # initial planning area in the frontend.
-                self.graph_x = randrange(0, 400)
-                self.graph_y = randrange(0, 250)
+                #
+                # We step by ten to make it a bit less squidgy.
+                self.graph_x = randrange(0, 400, 10)
+                self.graph_y = randrange(0, 250, 10)
         return super().save(*args, **kwargs)
