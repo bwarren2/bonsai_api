@@ -6,7 +6,10 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    pass
+
+    def save(self, *args, **kwargs):
+        self.username = self.username.lower()
+        return super().save(args, kwargs)
 
 
 class Task(models.Model):
