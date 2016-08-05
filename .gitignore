@@ -93,3 +93,4 @@ ENV/
 
 # Staticfiles
 bonsai/staticfiles
+*.sublime-*
