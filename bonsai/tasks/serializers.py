@@ -20,6 +20,8 @@ class TaskSerializer(serializers.ModelSerializer):
             'afters',
             'owner',
             'details',
+            'graph_x',
+            'graph_y',
         )
 
     def save(self, *args, **kwargs):
