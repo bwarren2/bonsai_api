@@ -13,6 +13,11 @@ class User(AbstractUser):
 
 
 class Task(models.Model):
+    class Meta:
+        ordering = (
+            '-created_at',
+        )
+
     title = models.CharField(max_length=128)
     completed_at = models.DateTimeField(null=True)
     created_at = models.DateTimeField(default=now)
