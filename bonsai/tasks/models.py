@@ -20,6 +20,7 @@ class Task(models.Model):
 
     title = models.CharField(max_length=128)
     completed_at = models.DateTimeField(null=True)
+    approved_at = models.DateTimeField(null=True)
     created_at = models.DateTimeField(default=now)
     befores = models.ManyToManyField(
         'self',

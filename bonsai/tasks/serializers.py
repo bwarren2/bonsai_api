@@ -15,6 +15,7 @@ class TaskSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'completed_at',
+            'approved_at',
             'created_at',
             'befores',
             'afters',
