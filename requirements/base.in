@@ -6,3 +6,4 @@ djangorestframework
 djoser
 gunicorn
 whitenoise
+sendgrid-django

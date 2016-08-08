@@ -146,6 +146,11 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Email sending:
+EMAIL_BACKEND = "sgbackend.SendGridBackend"
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY', default='')
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
