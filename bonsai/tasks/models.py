@@ -9,7 +9,7 @@ class User(AbstractUser):
 
     def save(self, *args, **kwargs):
         self.username = self.username.lower()
-        return super().save(args, kwargs)
+        return super().save(*args, **kwargs)
 
 
 class Task(models.Model):
