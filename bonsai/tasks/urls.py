@@ -6,6 +6,7 @@ from rest_framework.authtoken import views as authtoken_views
 
 router = DefaultRouter()
 router.register(r'tasks', views.TaskViewSet)
+router.register(r'decks', views.DeckViewSet)
 router.register(r'users', views.UserViewSet)
 
 urlpatterns = [

@@ -7,25 +7,32 @@ from rest_framework.response import Response
 
 from .models import (
     Task,
+    Deck,
     User,
 )
 from .serializers import (
     TaskSerializer,
+    DeckSerializer,
     UserSerializer,
 )
 
 
-class TaskViewSet(viewsets.ModelViewSet):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
+class LimitToOwnerMixin:
+    def get_queryset(self):
+        return self.queryset.filter(owner=self.request.user)
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-    def get_queryset(self):
-        return self.queryset.filter(
-            owner=self.request.user,
-        )
+
+class TaskViewSet(LimitToOwnerMixin, viewsets.ModelViewSet):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+
+
+class DeckViewSet(LimitToOwnerMixin, viewsets.ModelViewSet):
+    queryset = Deck.objects.all()
+    serializer_class = DeckSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):

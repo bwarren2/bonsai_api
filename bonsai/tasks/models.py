@@ -12,6 +12,11 @@ class User(AbstractUser):
         return super().save(*args, **kwargs)
 
 
+class Deck(models.Model):
+    title = models.CharField(max_length=128)
+    owner = models.ForeignKey(User)
+
+
 class Task(models.Model):
     class Meta:
         ordering = (
@@ -29,6 +34,7 @@ class Task(models.Model):
         blank=True,
     )
     owner = models.ForeignKey(User)
+    deck = models.ForeignKey(Deck, null=True)
     details = models.TextField(blank=True)
 
     graph_x = models.FloatField(null=True)

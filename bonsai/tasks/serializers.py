@@ -2,6 +2,7 @@ from django.db import IntegrityError
 from rest_framework import serializers
 from .models import (
     Task,
+    Deck,
     User,
 )
 
@@ -39,6 +40,16 @@ class TaskSerializer(serializers.ModelSerializer):
                 pass
             else:
                 raise excp
+
+
+class DeckSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Deck
+        fields = (
+            'title',
+            'owner',
+            'task_set',
+        )
 
 
 class UserSerializer(serializers.ModelSerializer):
