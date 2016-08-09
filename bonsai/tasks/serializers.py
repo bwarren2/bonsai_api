@@ -20,6 +20,7 @@ class TaskSerializer(serializers.ModelSerializer):
             'created_at',
             'befores',
             'afters',
+            'deck',
             'owner',
             'details',
             'graph_x',
@@ -46,6 +47,7 @@ class DeckSerializer(serializers.ModelSerializer):
     class Meta:
         model = Deck
         fields = (
+            'id',
             'title',
             'owner',
             'task_set',
