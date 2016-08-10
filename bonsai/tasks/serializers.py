@@ -44,12 +44,17 @@ class TaskSerializer(serializers.ModelSerializer):
 
 
 class DeckSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
+
     class Meta:
         model = Deck
         fields = (
             'id',
             'title',
             'owner',
+            'task_set',
+        )
+        read_only_fields = (
             'task_set',
         )
 
