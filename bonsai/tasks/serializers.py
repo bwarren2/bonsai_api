@@ -15,6 +15,7 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'title',
+            'deleted_at',
             'completed_at',
             'approved_at',
             'created_at',
