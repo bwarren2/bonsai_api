@@ -15,7 +15,10 @@ class User(AbstractUser):
 class Deck(models.Model):
     title = models.CharField(max_length=128)
     owner = models.ForeignKey(User)
-    deleted_at = models.DateTimeField(default=now)
+    deleted_at = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return '{}'.format(self.title)
 
 
 class Task(models.Model):
