@@ -53,7 +53,7 @@ class Task(models.Model):
                 # Magic values for the ranges intended to fit the nodes on the
                 # initial planning area in the frontend.
                 #
-                # We step by ten to make it a bit less squidgy.
-                self.graph_x = randrange(0, 400, 10)
-                self.graph_y = randrange(0, 250, 10)
+                # We step to make it a bit less squidgy.
+                self.graph_x = randrange(0, 400, 30)
+                self.graph_y = randrange(0, 250, 30)
         return super().save(*args, **kwargs)
