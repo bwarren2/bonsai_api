@@ -78,6 +78,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'username',
+            'enable_keyboard_shortcuts',
             'old_password',
             'new_password1',
             'new_password2',
