@@ -10,7 +10,7 @@ decorator==4.0.10         # via ipython, traitlets
 dj-database-url==0.4.1
 django-cors-headers==1.1.0
 Django==1.10
-djangorestframework==3.4.3
+djangorestframework==3.4.4
 fancycompleter==0.5       # via pdbpp
 first==2.0.1              # via pip-tools
 gunicorn==19.6.0
