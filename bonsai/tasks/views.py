@@ -14,6 +14,7 @@ from .serializers import (
     TaskSerializer,
     DeckSerializer,
     UserSerializer,
+    UserChangePasswordSerializer,
 )
 
 
@@ -46,7 +47,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
     @detail_route(methods=['post'])
     def set_password(self, request, pk=None):
-        serializer = self.get_serializer_class()(data=request.data)
+        serializer = UserChangePasswordSerializer(data=request.data)
         if serializer.is_valid():
             user = self.get_object()
             data = serializer.validated_data

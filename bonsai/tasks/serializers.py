@@ -59,7 +59,7 @@ class DeckSerializer(serializers.ModelSerializer):
         )
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserChangePasswordSerializer(serializers.ModelSerializer):
     old_password = serializers.CharField(
         style={'input_type': 'password'},
         write_only=True,
@@ -78,10 +78,22 @@ class UserSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'username',
-            'enable_keyboard_shortcuts',
             'old_password',
             'new_password1',
             'new_password2',
+        )
+        read_only_fields = (
+            'username',
+        )
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = (
+            'id',
+            'username',
+            'enable_keyboard_shortcuts',
         )
         read_only_fields = (
             'username',
