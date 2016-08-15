@@ -31,7 +31,7 @@ class Task(models.Model):
     completed_at = models.DateTimeField(null=True)
     approved_at = models.DateTimeField(null=True)
     created_at = models.DateTimeField(default=now)
-    deleted_at = models.DateTimeField(default=now)
+    deleted_at = models.DateTimeField(null=True, blank=True)
     befores = models.ManyToManyField(
         'self',
         symmetrical=False,
