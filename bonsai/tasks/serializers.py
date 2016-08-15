@@ -96,6 +96,7 @@ class UserSerializer(serializers.ModelSerializer):
             'id',
             'username',
             'enable_keyboard_shortcuts',
+            'show_help',
         )
         read_only_fields = (
             'username',
