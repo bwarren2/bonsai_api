@@ -15,6 +15,7 @@ class TaskSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'title',
+            'deleted_at',
             'completed_at',
             'approved_at',
             'created_at',
@@ -53,6 +54,7 @@ class DeckSerializer(serializers.ModelSerializer):
             'title',
             'owner',
             'task_set',
+            'deleted_at',
         )
         read_only_fields = (
             'task_set',
