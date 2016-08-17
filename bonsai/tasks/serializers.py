@@ -97,6 +97,11 @@ class UserSerializer(serializers.ModelSerializer):
             'username',
             'enable_keyboard_shortcuts',
             'show_help',
+            'show_help_brainstorm',
+            'show_help_refine',
+            'show_help_plan',
+            'show_help_execute',
+            'show_help_review',
         )
         read_only_fields = (
             'username',

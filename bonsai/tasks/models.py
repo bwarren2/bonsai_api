@@ -8,6 +8,11 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     enable_keyboard_shortcuts = models.BooleanField(default=False)
     show_help = models.BooleanField(default=True)
+    show_help_brainstorm = models.BooleanField(default=True)
+    show_help_refine = models.BooleanField(default=True)
+    show_help_plan = models.BooleanField(default=True)
+    show_help_execute = models.BooleanField(default=True)
+    show_help_review = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         self.username = self.username.lower()
