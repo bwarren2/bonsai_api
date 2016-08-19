@@ -55,6 +55,20 @@ class Task(models.Model):
     def __str__(self):
         return '{}'.format(self.title)
 
+    def subtasks_in(self, task_set):
+        # Why a task set?  So we can use few queries.
+        hashmap = {t.id: t.afters.all() for t in task_set}
+
+        additions = [self]
+        subtasks = []
+        while additions:
+            task = additions.pop()
+            if task not in subtasks:
+                subtasks.append(task)
+            additions.extend(hashmap[task.id])
+
+        return subtasks
+
     def save(self, *args, **kwargs):
         if self.pk is None:
             # If we are creating this for the first time, let's also make sure

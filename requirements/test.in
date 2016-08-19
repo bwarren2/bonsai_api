@@ -4,5 +4,5 @@ ipython
 pdbpp
 pytest
 pytest-django
-model_mommy
 tox
+model_mommy
