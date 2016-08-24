@@ -18,8 +18,8 @@ class TestTask(TestCase):
         assert self.a.afters.all()[0] == b
         assert b.befores.all()[0] == self.a
 
-    def test_subtasks(self):
+    def test_descendants(self):
         tasks = Task.objects.all()
-        assert self.a.subtasks_in(tasks) == \
+        assert self.a.descendants_in(tasks) == \
             list(Task.objects.exclude(title='b_prime').order_by('id'))
         self.assertNumQueries(2)
