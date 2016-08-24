@@ -66,9 +66,9 @@ class UserViewSet(viewsets.ModelViewSet):
             user = self.get_object()
             data = serializer.validated_data
             password_valid = user.check_password(data['old_password'])
-            new_passwords_match = data['new_password1'] \
-                == data['new_password2']
-
+            new_passwords_match = (
+                data['new_password1'] == data['new_password2']
+            )
             if password_valid and new_passwords_match:
                 user.set_password(data['new_password1'])
                 user.save()
