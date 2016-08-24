@@ -24,7 +24,7 @@ This is the API that powers Task Bonsai.
 
 ## Test coverage
 
-    py.test
+    `tox`
 
 ## Deployment
 
