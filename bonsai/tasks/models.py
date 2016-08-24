@@ -55,19 +55,36 @@ class Task(models.Model):
     def __str__(self):
         return '{}'.format(self.title)
 
-    def subtasks_in(self, task_set):
+    def descendants_in(self, task_set):
+        """
+        This takes a candidate task set, which is assumed to include this task, and returns a list of any task that appears in the afters of anything after this task, this task and its afters included.  See the test for an example.  We do it this way to minimize number of queries, and allow the calling code to make whatever restrictions it wants (ex only tasks in a particular deck for a particular user.)
+        """
+
         # Why a task set?  So we can use few queries.
         hashmap = {t.id: t.afters.all() for t in task_set}
 
+        # This is effectively a depth-first graph traversal.
+        # Use a deque for breadth-first.
+
+        # Any nodes that needs to have their data handled get added here.
         additions = [self]
-        subtasks = []
+
+        # All the nodes in the answer set go here.
+        descendants = []
+
+        # While we have any nodes to look at
         while additions:
+            # Take one
             task = additions.pop()
-            if task not in subtasks:
-                subtasks.append(task)
+
+            # Add it to the answer set if needed (uniqueness check here)
+            if task not in descendants:
+                descendants.append(task)
+
+            # Add all the downstream nodes to the look-at list.
             additions.extend(hashmap[task.id])
 
-        return subtasks
+        return descendants
 
     def save(self, *args, **kwargs):
         if self.pk is None:
