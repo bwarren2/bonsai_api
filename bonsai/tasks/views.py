@@ -1,3 +1,5 @@
+from django.contrib.postgres.search import SearchVector
+
 from rest_framework import (
     viewsets,
     status,
@@ -30,17 +32,18 @@ class TaskViewSet(LimitToOwnerMixin, viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
-    def get_queryset(self):
-        parent_id = self.request.query_params.get('parent', None)
-        if parent_id:
-            parent = Task.objects.get(pk=parent_id)
-            deck = parent.deck
-            tasks = self.queryset.filter(
-                deleted_at=None,
-                deck=deck,
-            ).select_related().prefetch_related('afters')
-            return parent.subtasks_in(tasks)
+    def filter_by_search(self, search_string):
+        queryset = super().get_queryset()
+        return queryset.annotate(
+            search=SearchVector('title', 'details'),
+        ).filter(
+            search=search_string,
+        )
 
+    def get_queryset(self):
+        search_string = self.request.query_params.get('s', None)
+        if search_string is not None:
+            return self.filter_by_search(search_string)
         else:
             return super().get_queryset()
 
