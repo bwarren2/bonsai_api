@@ -32,15 +32,6 @@ class TaskViewSet(LimitToOwnerMixin, viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
 
-    def filter_by_parent(self, parent_id):
-        parent = Task.objects.get(pk=parent_id)
-        deck = parent.deck
-        tasks = self.queryset.filter(
-            deleted_at=None,
-            deck=deck,
-        ).select_related().prefetch_related('afters')
-        return parent.subtasks_in(tasks)
-
     def filter_by_search(self, search_string):
         queryset = super().get_queryset()
         return queryset.annotate(
@@ -50,11 +41,8 @@ class TaskViewSet(LimitToOwnerMixin, viewsets.ModelViewSet):
         )
 
     def get_queryset(self):
-        parent_id = self.request.query_params.get('parent', None)
         search_string = self.request.query_params.get('s', None)
-        if parent_id is not None:
-            return self.filter_by_parent(parent_id)
-        elif search_string is not None:
+        if search_string is not None:
             return self.filter_by_search(search_string)
         else:
             return super().get_queryset()
