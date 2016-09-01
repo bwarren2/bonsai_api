@@ -48,11 +48,11 @@ class TaskViewSet(LimitToOwnerMixin, viewsets.ModelViewSet):
         queryset = super().get_queryset()
 
         deck_id = self.request.query_params.get('deck', None)
-        if deck_id is not None:
+        if deck_id:
             queryset = self.filter_by_deck(queryset, deck_id)
 
         search_string = self.request.query_params.get('s', None)
-        if search_string is not None:
+        if search_string:
             queryset = self.filter_by_search(queryset, search_string)
 
         return queryset
