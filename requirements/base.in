@@ -3,5 +3,6 @@ psycopg2
 dj-database-url
 django-cors-headers
 djangorestframework
+djoser
 gunicorn
 whitenoise
