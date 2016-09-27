@@ -20,4 +20,6 @@ STATICFILES_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 # END STORAGE
 
-SECRET_KEY = 10
+SECRET_KEY = '12345678954563rqewvsbeh245'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
