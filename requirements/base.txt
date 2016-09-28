@@ -5,10 +5,14 @@
 #    pip-compile --output-file requirements/base.txt requirements/base.in
 #
 dj-database-url==0.4.1
-django-cors-headers==1.1.0
+django-cors-headers==1.2.0
 Django==1.10.1            # via djoser
 djangorestframework==3.4.7
 djoser==0.5.1
 gunicorn==19.6.0
 psycopg2==2.6.2
+python_http_client==1.2.3  # via sendgrid
+sendgrid-django==2.0.0
+sendgrid==2.2.1           # via sendgrid-django
+smtpapi==0.3.1            # via sendgrid
 whitenoise==3.2.2
