@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 ]
 
 DJOSER = {
-    'DOMAIN': 'localhost:4200',
+    'DOMAIN': 'alpha.taskbonsai.com',
     'SITE_NAME': 'Task Bonsai',
     'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
     'ACTIVATION_URL': 'activate/{uid}/{token}',
